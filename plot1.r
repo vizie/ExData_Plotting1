@@ -5,4 +5,6 @@ sub<- subset(t, t$NewDate >= as.POSIXct('2007-02-01 00:00:00') & t$NewDate < as.
 sub$wkday<-weekdays(sub$NewDate, abbreviate=TRUE)
 final<-na.omit(sub)
 c=c('red')
+png("plot1.png")
 hist(final$Global_active_power, col=c, main="Global Active Power", xlab="Global Active Power (kilowatts)")
+dev.off()
