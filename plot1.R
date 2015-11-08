@@ -2,7 +2,6 @@ t<-read.table("household_power_consumption.txt", sep=";", header=TRUE, na.string
 t$dt <- paste(t$Date, t$Time, sep=" ")
 t$NewDate <- strptime(t$dt, "%d/%m/%Y %H:%M:%S")
 sub<- subset(t, t$NewDate >= as.POSIXct('2007-02-01 00:00:00') & t$NewDate < as.POSIXct('2007-02-03 00:00:00'))
-sub$wkday<-weekdays(sub$NewDate, abbreviate=TRUE)
 final<-na.omit(sub)
 c=c('red')
 png("plot1.png")
